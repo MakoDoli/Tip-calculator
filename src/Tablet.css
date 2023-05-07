@@ -7,7 +7,7 @@
   .container {
     flex-direction: column;
     margin: 0;
-    width: 100%;
+    width: 455px;
     padding: 32px;
     height: 800px;
   }
