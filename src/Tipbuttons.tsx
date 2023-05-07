@@ -1,4 +1,7 @@
+import React, { memo } from "react";
+
 const Tipbuttons = function (props: any) {
+  console.log("buttons rerendered");
   return (
     <button
       className={props.cell}
@@ -9,4 +12,7 @@ const Tipbuttons = function (props: any) {
   );
 };
 
-export default Tipbuttons;
+export default memo(Tipbuttons, (prevProps, nextProps) => {
+  if (prevProps.buttonNumber === nextProps.buttonNumber) return true;
+  else return false;
+});
