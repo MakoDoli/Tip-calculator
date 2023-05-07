@@ -1,7 +1,11 @@
 import React, { memo } from "react";
-
-const Tipbuttons = function (props: any) {
-  console.log("buttons rerendered");
+interface Props {
+  cell: string;
+  buttonNumber: number;
+  handler: (num: number) => void;
+  percentage: string;
+}
+const Tipbuttons = function (props: Props) {
   return (
     <button
       className={props.cell}
@@ -11,7 +15,7 @@ const Tipbuttons = function (props: any) {
     </button>
   );
 };
-
+//using react.memo to avoid extra re-renders
 export default memo(Tipbuttons, (prevProps, nextProps) => {
   if (prevProps.buttonNumber === nextProps.buttonNumber) return true;
   else return false;
