@@ -145,6 +145,7 @@ function App() {
               onClick={() => {
                 setBill("");
                 setPeople("");
+                setNextRender(false);
                 setVisibleBill(false);
                 setVisiblePeople(false);
               }}
