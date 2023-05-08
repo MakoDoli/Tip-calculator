@@ -8,4 +8,6 @@ to my
 
 ![previw](/desktop-preview.jpg)
 
+Live url: https://tip-calculator-makodoli.vercel.app/
+
 Thank you for checking my project. Feel free to follow, ask questions or use this app 🍴
