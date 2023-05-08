@@ -64,11 +64,7 @@ function App() {
                 setNextRender(true);
               }}
             ></input>
-            <p
-              className={`${
-                visibleBill ? "wrong wrong-1 visible" : "wrong wrong-1"
-              }`}
-            >
+            <p className={`${visibleBill ? "wrong  visible" : "wrong"}`}>
               Can't be zero
             </p>
             <h1>Select Tip %</h1>
@@ -107,11 +103,7 @@ function App() {
                 setNextRender(true);
               }}
             ></input>
-            <p
-              className={`${
-                visiblePeople ? "wrong wrong-1 visible" : "wrong wrong-1"
-              }`}
-            >
+            <p className={`${visiblePeople ? "wrong visible" : "wrong"}`}>
               Can't be zero
             </p>
           </div>

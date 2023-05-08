@@ -184,8 +184,7 @@ h2 {
 .reset:hover {
   background: var(--lightBlue);
 }
-.wrong-1,
-.wrong-2 {
+.wrong {
   color: red;
   display: none;
 }

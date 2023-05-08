@@ -15,7 +15,7 @@ const Tipbuttons = function (props: Props) {
     </button>
   );
 };
-//using react.memo to avoid extra re-renders
+//using react.memo to avoid extra rerenders
 export default memo(Tipbuttons, (prevProps, nextProps) => {
   if (prevProps.buttonNumber === nextProps.buttonNumber) return true;
   else return false;
