@@ -11,39 +11,42 @@ function App() {
   const [visiblePeople, setVisiblePeople] = useState(false);
   const [people, setPeople] = useState<number | string>("");
   const [bill, setBill] = useState<number | string>("");
+  const [custom, setCustom] = useState<number | string>("");
   const [tipPercent, setTipPercent] = useState(0);
   const [nextRender, setNextRender] = useState(false);
 
   const tipAmount = (Number(bill) / 100) * tipPercent;
   const tipPerPerson = tipAmount / Number(people);
   const totalPerPerson = (Number(bill) + Number(tipAmount)) / Number(people);
-  console.log("render");
 
   useEffect(() => {
     if (nextRender) {
-      if (bill === 0 || bill === "" || isNaN(Number(bill)))
+      if (bill === 0 || bill === "" || isNaN(Number(bill))) {
         setVisibleBill(true);
-
-      if (people === 0 || people === "") setVisiblePeople(true);
+      } else {
+        setVisibleBill(false);
+      }
+      if (people === 0 || people === "" || isNaN(Number(bill))) {
+        setVisiblePeople(true);
+      } else {
+        setVisiblePeople(false);
+      }
     }
   }, [people, bill, nextRender]);
 
   function handler(num: number) {
-    if (bill === 0 || bill === "" || isNaN(Number(bill))) {
-      setVisibleBill(true);
-    }
-
+    setNextRender(true);
     setTipPercent(num);
-
-    console.log(visiblePeople);
   }
 
   return (
     <div style={{ width: "100vw" }}>
       <main
-        onClick={() => {
-          setVisibleBill(false);
-          setVisiblePeople(false);
+        onClick={(e) => {
+          if ((e.target as Element).tagName !== "BUTTON") {
+            setVisibleBill(false);
+            setVisiblePeople(false);
+          }
         }}
       >
         <img className="logo" src={logo} alt="logo"></img>
@@ -81,7 +84,12 @@ function App() {
 
               <div className=" cell-6">
                 <input
-                  onChange={(e) => setTipPercent(e.target.valueAsNumber)}
+                  onChange={(e) => {
+                    setTipPercent(e.target.valueAsNumber);
+                    setNextRender(true);
+                    setCustom(e.target.valueAsNumber);
+                  }}
+                  value={custom}
                   type="number"
                   name="custom"
                   id="custom"
@@ -140,6 +148,7 @@ function App() {
                 setNextRender(false);
                 setVisibleBill(false);
                 setVisiblePeople(false);
+                setCustom("");
               }}
             >
               Reset
